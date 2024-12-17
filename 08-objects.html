@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    const products = {
+        name: 'socks',
+        price: '1500',
+    }
+
+    products.name = 'cotton';
+
+    products.newproperty = true;
+
+    delete products.newproperty;
+    console.log(products)
+
+
+
+    const product2 = {
+        name: 'shirt2',
+        ['delivery-time']: '1 day',
+        rating: {
+            stars: 4.5,
+            count: 87,
+        },
+        fun: function function1() {
+            console.log('i am beautiful')
+        }
+    }
+    console.log(product2['name'])
+    console.log(product2)
+    product2.fun();
+
+    // conversion to JSON -> <-
+    const jsonString = (JSON.stringify(product2));
+    console.log(JSON.parse(jsonString))
+
+
+    // auto boxing
+    console.log('hello'.length)
+    console.log('hello'.toUpperCase)
+
+    //object referencing
+    const object1 = {
+        message: 'hello'
+    }
+
+    const object2 = object1;
+    object1.message = 'good job';
+    console.log(object1)
+    console.log(object2)
+
+    const object3 = {
+        message: 'good job'
+    };
+
+    console.log(object3 === object1);
+    console.log(object2 === object1);
+
+    // shortcourt for objects
+    const object4 = {
+        message: 'good job',
+        price: 799,
+    };
+    // const message = object4.message;
+    const {
+        message,
+        price,
+    } = object4
+    console.log(message)
+    const objects = {
+        message,
+        method() {
+            console.log('method')
+        }
+    };
+
+    console.log(objects)
+    objects.method();
+
+
+
+    const prod1 = {
+        name: 'shoe',
+        price: 300,
+
+    }
+
+
+    const prod2 = {
+        name: 'cloth',
+        price: 500,
+    }
+
+    function comparePrice(prod1, prod2) {
+        if (prod1.price < prod2.price) {
+            console.log(prod1.price)
+        } else {
+            console.log(prod2.price)
+        }
+    }
+    comparePrice(prod1, prod2);
+</script>
+
+</html>

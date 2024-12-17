@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Assingemnts</title>
+</head>
+
+<body>
+    <button class="js-heads" onclick="displayText('Heads')"> Heads</button>
+    <button class="js-tails" onclick="displayText('Tails')
+    "> Tails</button>
+
+    <p class="js-result"></p>
+
+
+    <input type="text" class="js-name-input" placeholder="Name" onkeydown="handleNameKeydown(event);">
+    <button onclick="
+    displayName() 
+    ">Submit</button>
+
+    <p class="js-display-name"></p>
+
+    <input type="text" class="js-update-input" placeholder="Name" onkeyup="handleNameKeyup();">
+
+    <p class="js-ressult1"></p>
+
+</body>
+<script>
+    function displayText(choice) {
+
+        if (choice === 'Heads') {
+            document.querySelector('.js-result').innerHTML = `You choose: ${choice}`;
+        } else if (choice === 'Tails') {
+            document.querySelector('.js-result').innerHTML = `You choose: ${choice}`;
+        }
+
+    }
+
+    function displayName() {
+        let nameElement = document.querySelector('.js-name-input')
+        let name = nameElement.value.trim();
+
+
+        if (name) {
+            document.querySelector('.js-display-name').innerHTML = `your name is ${name}`
+        } else {
+            document.querySelector('.js-display-name').innerHTML = 'Pease enter your name '
+        }
+
+    }
+
+    function handleNameKeydown(event) {
+        if (event.key === 'Enter') {
+            displayName();
+        }
+    }
+
+    function handleNameKeyup() {
+        const inputElement = document.querySelector('.js-update-input');
+        document.querySelector('.js-ressult1').innerHTML = inputElement.value;
+    }
+</script>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Assignments</title>
+</head>
+
+<body>
+    <button class="js-heads" onclick="displayText('Heads')">Heads</button>
+    <button class="js-tails" onclick="displayText('Tails')">Tails</button>
+
+    <p class="js-result"></p>
+
+    <script>
+        function displayText(choice) {
+            document.querySelector('.js-result').innerHTML = `You chose: ${choice}`;
+        }
+    </script>
+</body>
+
+</html> -->
