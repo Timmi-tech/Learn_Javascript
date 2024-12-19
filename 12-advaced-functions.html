@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced function assingments</title>
+</head>
+
+<body>
+    <button class="js-change js-change-button">tomiwa</button>
+    <button class="js-added-to-cart js-chnage-add-to-cart">Add to cart</button>
+    <button class="js-new-message"> Add </button>
+    <button class="js-remove-button">Remove</button>
+    <p class="js-display-message"></p>
+</body>
+
+<script>
+    // function to change the button
+    function chnageButton() {
+        document.querySelector('.js-change').innerHTML = 'loading...'
+        setTimeout(function() {
+            document.querySelector('.js-change').innerHTML = 'finished '
+        }, 2000)
+    }
+    // onclick functions
+    const changeElement = document.querySelector('.js-change-button')
+    changeElement.addEventListener('click', () => {
+        chnageButton()
+    })
+    const changeAddElement = document.querySelector('.js-chnage-add-to-cart')
+    changeAddElement.addEventListener('click', () => {
+        addMessage()
+    })
+    const changeMessageElement = document.querySelector('.js-new-message')
+    changeMessageElement.addEventListener('click', () => {
+        Messages++
+        newMeg();
+    })
+    const changeRemoveElement = document.querySelector('.js-remove-button')
+    changeRemoveElement.addEventListener('click', () => {
+        if (Messages > 0) {
+            Messages--
+            if (Messages === 0) {
+                stopDisplayDisabled();
+            }
+        }
+    })
+
+    // function to addmesage to the button
+    function addMessage() {
+        const messageElement = document.querySelector('.js-display-message')
+        messageElement.innerHTML = 'Added'
+
+        setInterval(function() {
+            messageElement.innerHTML = '';
+
+        }, 2000)
+    }
+
+    // function to control the mesages 
+    let Messages = 2
+    let myId;
+    let isDisplayNotificationEnabled;
+    newMeg();
+
+    function newMeg() {
+        if (isDisplayNotificationEnabled) {
+            return
+        }
+        isDisplayNotificationEnabled = true;
+
+        myId = setInterval(function() {
+            if (document.title === 'Advanced function assingments') {
+                document.title = `(${Messages}) New Messages`
+            } else {
+                document.title = 'Advanced function assingments'
+            }
+        }, 2000)
+    }
+
+    function stopDisplayDisabled() {
+        isDisplayNotificationEnabled = false;
+
+        clearInterval(myId);
+        document.title = 'App'
+    }
+    const multiply = (param1, param2) => param1 * param2;
+    console.log(multiply(2, 3));
+    console.log(multiply(7, 10));
+
+
+
+    const countPositive = (nums) => {
+        let positiveNumbers = 0;
+
+        nums.forEach((num) => {
+            if (num > 0) {
+                positiveNumbers++;
+            }
+        })
+        return positiveNumbers;
+    }
+
+    console.log(countPositive([1, -3, 5]))
+
+    const addNum = (array, num) => {
+        return array.map(value => value + num)
+    }
+    console.log(addNum([2, 3, 4, 5, 5], 3))
+
+    // console.log(['egg', 'apple', 'egg', 'egg', 'ham'].filter((value, index) => {
+    //     if (value !== 'apple') {
+    //         return true;
+    //     } else {
+    //         return false
+    //     }
+    // }))
+
+    const removeEgg = (array) => {
+        return array.filter((value, index) => {
+            if (value !== 'egg') {
+                return true
+
+            } else {
+                return false
+            }
+        })
+
+    }
+    console.log(removeEgg(['egg', 'apple', 'egg', 'egg', 'ham', 'orange ']))
+</script>
+
+</html>
